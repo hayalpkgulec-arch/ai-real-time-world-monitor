@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: web-build
-        path: aegis_app/build/web
+        path: aegis_app
         retention-days: 7
 
   # ═══════════════════════════════════════════════════════════════════

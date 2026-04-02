@@ -1,0 +1,11 @@
+{
+  "name": "aegis-web",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve -s build/web -l 8080",
+    "build": "flutter build web --release"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
