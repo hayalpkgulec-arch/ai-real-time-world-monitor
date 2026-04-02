@@ -19,13 +19,13 @@ FROM node:18-alpine
 # Install serve
 RUN npm install -g serve
 
-# Copy built web app
-COPY --from=flutter-build /app/build/web /app
+# Copy built web app to correct location
+COPY --from=flutter-build /app/build/web /app/build/web
 
-WORKDIR /app
+WORKDIR /app/build/web
 
 # Expose port
 EXPOSE 8080
 
-# Serve the app
+# Serve the app from correct directory
 CMD ["serve", "-s", ".", "-l", "8080"]
