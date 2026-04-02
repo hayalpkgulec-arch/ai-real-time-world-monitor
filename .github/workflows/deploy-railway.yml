@@ -141,7 +141,20 @@ jobs:
         RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
       run: |
         cd web-build
-        railway up --service=$RAILWAY_SERVICE_ID
+        if [ -n "$RAILWAY_TOKEN" ]; then
+          echo "🔑 Railway token found"
+          if [ -n "$RAILWAY_SERVICE_ID" ]; then
+            echo "🎯 Deploying to service: $RAILWAY_SERVICE_ID"
+            railway up --service=$RAILWAY_SERVICE_ID
+          else
+            echo "🚀 Deploying to project (no service ID)"
+            railway up
+          fi
+        else
+          echo "❌ No Railway token found - skipping deployment"
+          echo "📝 Please add RAILWAY_TOKEN to GitHub Secrets"
+          exit 1
+        fi
         
     - name: ✅ Deploy Status
       run: |
