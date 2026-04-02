@@ -9,6 +9,7 @@ import 'screens/map/map_screen.dart';
 import 'screens/feed/feed_screen.dart';
 import 'screens/briefs/briefs_screen.dart';
 import 'screens/alerts/alerts_screen.dart';
+import 'widgets/live_risk_map_simple.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,6 +66,7 @@ class _AegisShellState extends State<AegisShell> {
   final List<Widget> _screens = const [
     HomeScreen(),
     MapScreen(),
+    LiveRiskMapScreen(),
     FeedScreen(),
     BriefsScreen(),
     AlertsScreen(),
