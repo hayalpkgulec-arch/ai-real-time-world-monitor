@@ -1,0 +1,10 @@
+{
+  "name": "aegis-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve -s build/web -l 8080"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
