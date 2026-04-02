@@ -1,4 +1,4 @@
-name: 🚀 Build & Deploy
+name: 🚀 Build Only (No Deploy)
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: web-build
-        path: aegis_app
+        path: aegis_app/build/web
         retention-days: 7
 
   # ═══════════════════════════════════════════════════════════════════
@@ -113,65 +113,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ios-build
-        path: aegis_app/build/ios/iphoneosflutter/Runner.app
+        path: aegis_app/build/ios/iphoneos/Runner.app
         retention-days: 7
-
-  # ═══════════════════════════════════════════════════════════════════
-  # DEPLOY TO RAILWAY (Web Only)
-  # ═══════════════════════════════════════════════════════════════════
-  deploy-railway:
-    name: 🚀 Deploy to Railway
-    needs: build-web
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: 📥 Download Web Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: web-build
-        path: web-build
-        
-    - name: 📦 Install Railway CLI
-      run: npm install -g @railway/cli
-      
-    - name: 🚀 Deploy to Railway
-      env:
-        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
-      run: |
-        cd web-build
-        echo "🔑 Railway token found"
-        echo "🎯 Service ID: $RAILWAY_SERVICE_ID"
-        
-        # Create a simple index.html if not exists
-        if [ ! -f "index.html" ]; then
-          echo "<!DOCTYPE html><html><head><title>AEGIS</title></head><body><h1>AEGIS Intelligence</h1></body></html>" > index.html
-        fi
-        
-        # Check Railway CLI version
-        railway --version
-        
-        # Test token validity
-        echo "� Testing Railway token..."
-        if railway whoami > /dev/null 2>&1; then
-          echo "✅ Railway token valid"
-          if [ -n "$RAILWAY_SERVICE_ID" ]; then
-            echo "🚀 Deploying to service: $RAILWAY_SERVICE_ID"
-            railway up --service=$RAILWAY_SERVICE_ID --verbose
-          else
-            echo "🚀 Deploying to project (no service ID)"
-            railway up --verbose
-          fi
-        else
-          echo "❌ Invalid Railway token"
-          exit 1
-        fi
-        
-    - name: ✅ Deploy Status
-      run: |
-        echo "🎉 Deploy completed!"
-        echo "🌐 App URL: https://realtimeoworldmonitor-production.up.railway.app"
 
   # ═══════════════════════════════════════════════════════════════════
   # BUILD SUMMARY
@@ -193,4 +136,4 @@ jobs:
         echo "| 🤖 Android | ${{ needs.build-android.result }} | android-apk |" >> $GITHUB_STEP_SUMMARY
         echo "| 🍎 iOS | ${{ needs.build-ios.result }} | ios-build |" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Production URL:** https://realtimeoworldmonitor-production.up.railway.app" >> $GITHUB_STEP_SUMMARY
+        echo "**🚀 Railway Deployment:** Automatic via GitHub Integration" >> $GITHUB_STEP_SUMMARY
