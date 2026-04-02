@@ -4,11 +4,14 @@ FROM cirrusci/flutter:stable as flutter-build
 # Set working directory
 WORKDIR /app
 
-# Copy flutter app files
-COPY aegis_app/ ./
+# Copy only pubspec files first for better caching
+COPY aegis_app/pubspec.yaml ./
 
 # Get dependencies
 RUN flutter pub get
+
+# Copy the rest of the app
+COPY aegis_app/ ./
 
 # Build web app
 RUN flutter build web --release
