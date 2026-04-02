@@ -1,0 +1,43 @@
+name: 🚀 Deploy to Railway
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐳 Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.0'
+        channel: 'stable'
+        
+    - name: 📦 Get Flutter dependencies
+      run: flutter pub get
+      
+    - name: 🔨 Build Flutter web
+      run: |
+        flutter build web --web-renderer canvaskit --no-sound-null-safety
+        
+    - name: 📦 Install Railway CLI
+      run: npm install -g @railway/cli
+      
+    - name: 🚀 Deploy to Railway
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      run: |
+        cd aegis_app/build/web
+        railway up --service=$RAILWAY_SERVICE_ID
+        
+    - name: ✅ Deploy status
+      run: |
+        echo "🎉 Deploy completed!"
+        echo "🌐 App URL: https://realtimeoworldmonitor-production.up.railway.app"
