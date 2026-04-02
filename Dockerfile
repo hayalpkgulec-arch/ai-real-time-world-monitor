@@ -1,32 +1,31 @@
-# Multi-stage build for Flutter web app
+# Build stage
 FROM ghcr.io/cirruslabs/flutter:3.41.6 as flutter-build
 
-# Set working directory
 WORKDIR /app
 
-# Copy only pubspec files first for better caching
+# Copy pubspec and get dependencies
 COPY aegis_app/pubspec.yaml ./
-
-# Get dependencies
 RUN flutter pub get
 
-# Copy the rest of the app
+# Copy source code
 COPY aegis_app/ ./
 
 # Build web app
 RUN flutter build web --release
 
-# Production stage
-FROM nginx:alpine
+# Production stage - use simple static server
+FROM node:18-alpine
 
-# Copy built web app to nginx
-COPY --from=flutter-build /app/build/web /usr/share/nginx/html
+# Install serve
+RUN npm install -g serve
 
-# Copy nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy built web app
+COPY --from=flutter-build /app/build/web /app
+
+WORKDIR /app
 
 # Expose port
-EXPOSE 80
+EXPOSE 8080
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Serve the app
+CMD ["serve", "-s", ".", "-l", "8080"]
