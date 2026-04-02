@@ -1,5 +1,5 @@
 # Multi-stage build for Flutter web app
-FROM cirrusci/flutter:stable as flutter-build
+FROM ghcr.io/cirruslabs/flutter:3.19.0 as flutter-build
 
 # Set working directory
 WORKDIR /app
