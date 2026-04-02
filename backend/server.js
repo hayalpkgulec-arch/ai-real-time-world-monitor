@@ -486,6 +486,181 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Risk Map API endpoints
+app.get('/api/v1/map/countries', async (req, res) => {
+  try {
+    const countries = ['USA', 'CHN', 'RUS', 'IRN', 'ISR', 'UKR', 'TWN'];
+    const results = await Promise.all(
+      countries.map(async (country) => {
+        // Mock risk calculation (gerçek implementasyon ACLED/GDELT ile yapılacak)
+        const riskScore = Math.random() * 100;
+        let riskLevel;
+        if (riskScore >= 80) riskLevel = 'CRITICAL';
+        else if (riskScore >= 60) riskLevel = 'HIGH';
+        else if (riskScore >= 40) riskLevel = 'ELEVATED';
+        else if (riskScore >= 20) riskLevel = 'GUARDED';
+        else riskLevel = 'LOW';
+        
+        return {
+          country,
+          risk_score: Math.round(riskScore * 10) / 10,
+          risk_level: riskLevel,
+          breakdown: { active_conflicts: riskScore * 0.25 },
+          timestamp: new Date().toISOString(),
+        };
+      })
+    );
+    
+    res.json({
+      success: true,
+      data: results,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/v1/map/country/:iso3', async (req, res) => {
+  try {
+    const { iso3 } = req.params;
+    const riskScore = Math.random() * 100;
+    let riskLevel;
+    if (riskScore >= 80) riskLevel = 'CRITICAL';
+    else if (riskScore >= 60) riskLevel = 'HIGH';
+    else if (riskScore >= 40) riskLevel = 'ELEVATED';
+    else if (riskScore >= 20) riskLevel = 'GUARDED';
+    else riskLevel = 'LOW';
+    
+    const result = {
+      country: iso3.toUpperCase(),
+      risk_score: Math.round(riskScore * 10) / 10,
+      risk_level: riskLevel,
+      breakdown: { active_conflicts: riskScore * 0.25 },
+      timestamp: new Date().toISOString(),
+    };
+    
+    res.json({
+      success: true,
+      data: result
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/v1/map/events/active', async (req, res) => {
+  try {
+    const activeEvents = [
+      {
+        id: 'evt_001',
+        title: 'Orta Doğu Askeri Gerilim',
+        latitude: 32.4279,
+        longitude: 53.6903,
+        severity: 'CRITICAL',
+        importance: 85,
+        countries: ['IRN', 'ISR'],
+        timestamp: new Date().toISOString()
+      },
+      {
+        id: 'evt_002', 
+        title: 'Tayvan Boğazı Artan Gerilim',
+        latitude: 25.0308,
+        longitude: 121.5457,
+        severity: 'HIGH',
+        importance: 72,
+        countries: ['TWN', 'CHN'],
+        timestamp: new Date().toISOString()
+      }
+    ];
+    
+    res.json({
+      success: true,
+      data: activeEvents
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/v1/map/events', async (req, res) => {
+  try {
+    const { lat, lng, radius = 50 } = req.query;
+    
+    const events = [
+      {
+        id: 'evt_001',
+        title: 'Orta Doğu Askeri Gerilim',
+        latitude: parseFloat(lat),
+        longitude: parseFloat(lng),
+        severity: 'CRITICAL',
+        importance: 85,
+        distance: 15
+      }
+    ].filter(event => {
+      const eventLat = event.latitude;
+      const eventLng = event.longitude;
+      const distance = Math.sqrt(
+        Math.pow(parseFloat(lat) - eventLat, 2) + 
+        Math.pow(parseFloat(lng) - eventLng, 2)
+      ) * 111;
+      return distance <= parseFloat(radius);
+    });
+    
+    res.json({
+      success: true,
+      data: events,
+      center: { lat: parseFloat(lat), lng: parseFloat(lng) },
+      radius: parseFloat(radius)
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/v1/map/heatmap', async (req, res) => {
+  try {
+    const { timeframe = '24h' } = req.query;
+    
+    const heatmapData = {
+      type: 'heatmap',
+      timeframe,
+      data: [
+        { lat: 32.4, lng: 53.7, intensity: 0.9 }, // İran
+        { lat: 31.8, lng: 35.7, intensity: 0.8 }, // İsrail
+        { lat: 25.0, lng: 121.5, intensity: 0.7 }, // Tayvan
+        { lat: 39.9, lng: 116.4, intensity: 0.6 }, // Pekin
+      ]
+    };
+    
+    res.json({
+      success: true,
+      data: heatmapData
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/v1/map/connections', async (req, res) => {
+  try {
+    const connections = [
+      {
+        source: { lat: 32.4, lng: 53.7, risk: 'CRITICAL' },
+        target: { lat: 31.8, lng: 35.7, risk: 'HIGH' },
+        strength: 0.8
+      }
+    ];
+    
+    res.json({
+      success: true,
+      data: connections
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({
