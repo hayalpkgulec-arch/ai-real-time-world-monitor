@@ -19,7 +19,6 @@ jobs:
       with:
         flutter-version: '3.19.0'
         channel: 'stable'
-        working-directory: aegis_app
         
     - name: 📦 Get Flutter dependencies
       run: |
