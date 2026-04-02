@@ -43,7 +43,7 @@ class AegisApp extends StatelessWidget {
         viewInsets: EdgeInsets.zero, // Prevent negative ViewInsets
       ),
       child: MaterialApp(
-        title: 'AEGIS Intelligence v2.0',
+        title: 'AEGIS Intelligence v2.1 - Railway Ready',
         debugShowCheckedModeBanner: false,
         theme: AegisTheme.dark,
         home: const AegisShell(),
