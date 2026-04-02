@@ -1,34 +1,136 @@
-name: 🚀 Deploy to Railway
+name: 🚀 Build & Deploy
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  # ═══════════════════════════════════════════════════════════════════
+  # BUILD WEB
+  # ═══════════════════════════════════════════════════════════════════
+  build-web:
+    name: 🌐 Build Web
     runs-on: ubuntu-latest
     
     steps:
     - name: 📥 Checkout code
       uses: actions/checkout@v4
       
-    - name: 🐳 Setup Flutter with Docker
+    - name: 🐳 Setup Flutter
       uses: subosito/flutter-action@v2
       with:
         channel: 'stable'
         cache: true
         
-    - name: 📦 Get Flutter dependencies
+    - name: 📦 Get dependencies
       run: |
         cd aegis_app
         flutter pub get
         
-    - name: 🔨 Build Flutter web
+    - name: 🔨 Build Web
       run: |
         cd aegis_app
-        flutter build web
+        flutter build web --release
+        
+    - name: 📦 Upload Web Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: web-build
+        path: aegis_app/build/web
+        retention-days: 7
+
+  # ═══════════════════════════════════════════════════════════════════
+  # BUILD ANDROID
+  # ═══════════════════════════════════════════════════════════════════
+  build-android:
+    name: 🤖 Build Android
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: ☕ Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: 🐳 Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+        cache: true
+        
+    - name: 📦 Get dependencies
+      run: |
+        cd aegis_app
+        flutter pub get
+        
+    - name: 🔨 Build Android APK
+      run: |
+        cd aegis_app
+        flutter build apk --release
+        
+    - name: 📦 Upload Android Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-apk
+        path: aegis_app/build/app/outputs/flutter-apk/app-release.apk
+        retention-days: 7
+
+  # ═══════════════════════════════════════════════════════════════════
+  # BUILD IOS (Requires macOS runner)
+  # ═══════════════════════════════════════════════════════════════════
+  build-ios:
+    name: 🍎 Build iOS
+    runs-on: macos-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐳 Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+        cache: true
+        
+    - name: 📦 Get dependencies
+      run: |
+        cd aegis_app
+        flutter pub get
+        
+    - name: 🔨 Build iOS (No Codesign)
+      run: |
+        cd aegis_app
+        flutter build ios --release --no-codesign
+        
+    - name: 📦 Upload iOS Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ios-build
+        path: aegis_app/build/ios/iphoneosflutter/Runner.app
+        retention-days: 7
+
+  # ═══════════════════════════════════════════════════════════════════
+  # DEPLOY TO RAILWAY (Web Only)
+  # ═══════════════════════════════════════════════════════════════════
+  deploy-railway:
+    name: 🚀 Deploy to Railway
+    needs: build-web
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: 📥 Download Web Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: web-build
+        path: web-build
         
     - name: 📦 Install Railway CLI
       run: npm install -g @railway/cli
@@ -36,11 +138,34 @@ jobs:
     - name: 🚀 Deploy to Railway
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
       run: |
-        cd aegis_app/build/web
+        cd web-build
         railway up --service=$RAILWAY_SERVICE_ID
         
-    - name: ✅ Deploy status
+    - name: ✅ Deploy Status
       run: |
         echo "🎉 Deploy completed!"
         echo "🌐 App URL: https://realtimeoworldmonitor-production.up.railway.app"
+
+  # ═══════════════════════════════════════════════════════════════════
+  # BUILD SUMMARY
+  # ═══════════════════════════════════════════════════════════════════
+  build-summary:
+    name: 📊 Build Summary
+    needs: [build-web, build-android, build-ios]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: 📊 Generate Build Summary
+      run: |
+        echo "## 🎉 Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "| Platform | Status | Artifact |" >> $GITHUB_STEP_SUMMARY
+        echo "|----------|--------|----------|" >> $GITHUB_STEP_SUMMARY
+        echo "| 🌐 Web | ${{ needs.build-web.result }} | web-build |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🤖 Android | ${{ needs.build-android.result }} | android-apk |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🍎 iOS | ${{ needs.build-ios.result }} | ios-build |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Production URL:** https://realtimeoworldmonitor-production.up.railway.app" >> $GITHUB_STEP_SUMMARY
