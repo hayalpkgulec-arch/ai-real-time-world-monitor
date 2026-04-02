@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AEGIS INTELLIGENCE | Global Event Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#72fe88",
+              "on-surface-variant": "#acabaa",
+              "on-primary-fixed": "#3e4040",
+              "on-secondary": "#002709",
+              "secondary-dim": "#17b64a",
+              "error-dim": "#bb5551",
+              "surface-bright": "#2c2c2c",
+              "on-secondary-fixed": "#004a18",
+              "surface-container-low": "#131313",
+              "secondary": "#17b64a",
+              "on-background": "#e7e5e4",
+              "surface-variant": "#252626",
+              "error": "#ee7d77",
+              "on-primary-container": "#d0d0d0",
+              "primary-dim": "#b8b9b9",
+              "on-error-container": "#ff9993",
+              "primary-fixed-dim": "#d4d4d4",
+              "outline-variant": "#484848",
+              "surface-tint": "#c6c6c7",
+              "on-tertiary-fixed": "#000000",
+              "on-secondary-container": "#4ad968",
+              "on-primary-fixed-variant": "#5a5c5c",
+              "secondary-container": "#004616",
+              "on-secondary-fixed-variant": "#006a26",
+              "on-error": "#490106",
+              "on-primary": "#3f4041",
+              "on-surface": "#e7e5e4",
+              "tertiary-fixed-dim": "#e62721",
+              "on-tertiary-fixed-variant": "#150000",
+              "on-tertiary-container": "#000000",
+              "inverse-surface": "#fcf8f8",
+              "outline": "#767575",
+              "tertiary-container": "#f9362c",
+              "surface-container-lowest": "#000000",
+              "primary": "#c6c6c7",
+              "tertiary-dim": "#e2241f",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "tertiary-fixed": "#f9362c",
+              "surface-container-highest": "#252626",
+              "surface-dim": "#0e0e0e",
+              "surface-container": "#191a1a",
+              "inverse-primary": "#5e5f60",
+              "inverse-on-surface": "#565554",
+              "tertiary": "#ff7162",
+              "primary-fixed": "#e2e2e2",
+              "primary-container": "#454747",
+              "error-container": "#7f2927",
+              "surface-container-high": "#1f2020",
+              "on-tertiary": "#4a0001",
+              "secondary-fixed-dim": "#63ef7b"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#131313] flex justify-between items-center px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c6c6c7]" data-icon="security">security</span>
+<span class="font-['Space_Grotesk'] text-lg font-black tracking-[0.2em] text-[#c6c6c7]">AEGIS INTELLIGENCE</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#c6c6c7]">LIVE_FEED</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile" data-alt="User profile avatar in tactical gear, moody low light, high contrast portrait of a security professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPmm9LBHZtZX9sPWIBT-cBKo-WMGW4ORhR4OsuVGJyjT3Of3AayIkRTZ3gkrg-wUA-ZrXuqmFc2GGzWL-jPU8PL8iVYsJp2npAfGmPFiyn6WMnM1LGNfPSNCEnc_Tdg_Fhgx15ps-wZDhiRo42B_rQdQ34okUvYQaSERr9L2dcUCsgGxo9YX-X2x1_zTSZ7xurZsVTiL64Rn_3ZHImG1bdNxlMCR1nGdUvmpOMU80JCeCiLgGkYlLYiscTPZzBRT-v-JcGE4biQKnL"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Metrics & HUD -->
+<aside class="lg:col-span-3 space-y-8 hidden lg:block">
+<div class="space-y-1">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Global Risk Index</p>
+<h2 class="text-5xl font-bold font-headline tracking-tighter text-primary">0.42</h2>
+<div class="flex items-center gap-2 text-secondary text-xs font-label">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_down">trending_down</span>
+                    -2.4% FROM PREV. CYCLE
+                </div>
+</div>
+<div class="p-4 bg-surface-container-low space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Active Nodes</span>
+<span class="font-label text-[10px] text-secondary">STABLE</span>
+</div>
+<div class="space-y-3">
+<div class="h-1 bg-outline-variant w-full relative">
+<div class="absolute inset-y-0 left-0 bg-secondary w-4/5"></div>
+</div>
+<div class="grid grid-cols-3 gap-1">
+<div class="h-8 bg-surface-container-high"></div>
+<div class="h-8 bg-surface-container-high"></div>
+<div class="h-8 bg-surface-container-high border-b-2 border-secondary"></div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">System Status</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-xs font-label">SAT_COM_LINK</span>
+<span class="text-xs font-label text-secondary">ACTIVE</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-xs font-label">NEURAL_DECODE</span>
+<span class="text-xs font-label text-secondary">SYNCED</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-xs font-label">THREAT_ARRAY</span>
+<span class="text-xs font-label text-tertiary">WARN</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Column: Event Feed -->
+<section class="lg:col-span-6 space-y-6">
+<!-- Timeline Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">INTELLIGENCE FEED</h1>
+<p class="font-label text-xs text-on-surface-variant tracking-widest">REAL-TIME GLOBAL OVERSIGHT</p>
+</div>
+<div class="text-right">
+<p class="font-label text-xs text-primary font-bold">14:02:45 UTC+0</p>
+<p class="font-label text-[10px] text-on-surface-variant">SYNC: 100%</p>
+</div>
+</div>
+<!-- Event Card 1: Critical -->
+<article class="relative pl-8 border-l border-outline-variant/30 space-y-4 pb-12">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-tertiary shadow-[0_0_10px_rgba(255,113,98,0.5)]"></div>
+<div class="bg-surface-container-low p-4 space-y-4 group transition-all duration-300 hover:bg-surface-container-high">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-label text-[10px] bg-tertiary-container text-on-tertiary-container px-2 py-0.5 rounded-full font-bold">CRITICAL</span>
+<h3 class="font-headline font-bold text-lg leading-tight uppercase">Infrastructure Breach: Sector 7G Energy Grid</h3>
+</div>
+<span class="font-label text-xs text-on-surface-variant">SEC-01</span>
+</div>
+<div class="aspect-video w-full overflow-hidden">
+<img alt="Grid Infrastructure" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Cinematic low-angle shot of electrical transmission towers at twilight, moody atmosphere, deep shadows, low saturation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBu748entHV4dNcjVwPPMCZ-BehwgIIHIrpgJ168hCFkwg5kAO-3IbxipsuGejpiseX2W3sY5bdDuXrlxYPNZ5DzGtXEcniz19TeZDwHaWtU2AjWDn6PMU-Tt6VMXSxUmh3LEQCyTd9hkTYiI4dDgLO8I7OWO05g4FjxR6EvNiAKvm5ku-90LOF1ldhxdaqgNANbGmbZLQtNcWdl40fyTkY0DzjhxJLtWv-NkxP4mHG-QqAOnyYn9mNv7cHFu4xoTEZdJyvzLHkLo4"/>
+</div>
+<div class="space-y-3">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Anomalous activity detected in the decentralized energy routing protocols. AI diagnostics indicate a 94% probability of a targeted state-sponsored cyber penetration targeting high-voltage distribution relays.
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-primary">IMPACT_VECTOR: INFRASTRUCTURE</span>
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-tertiary">MARKET_SIGNAL: VOLATILITY_HIGH</span>
+</div>
+</div>
+<div class="pt-2 flex justify-between items-center border-t border-outline-variant/20">
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Timestamp: 13:58:12 UTC+0</span>
+<button class="text-[10px] font-label font-bold text-primary hover:underline transition-all uppercase tracking-widest">Request Deep Intel</button>
+</div>
+</div>
+</article>
+<!-- Event Card 2: Stable -->
+<article class="relative pl-8 border-l border-outline-variant/30 space-y-4 pb-12">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-secondary"></div>
+<div class="bg-surface-container-low p-4 space-y-4 group transition-all duration-300 hover:bg-surface-container-high">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-label text-[10px] bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold uppercase">Stable</span>
+<h3 class="font-headline font-bold text-lg leading-tight uppercase">Oceanic Logistic Lane Calibration</h3>
+</div>
+<span class="font-label text-xs text-on-surface-variant">SEC-04</span>
+</div>
+<div class="aspect-video w-full overflow-hidden">
+<img alt="Container Ship" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Massive container ship moving through calm dark water at night, illuminated by soft harbor lights, tactical cinematic perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdXJbac85IOVx3EzDhU9xhdN8OloIdkkkGU0IqzI_VAv7zmvHn4GFwtFWlLPXB1h39hSjEC1QWAIDdi0RyWSGimOetiwpBkUomhxOK-nAENoGNFn_mZQL8F7VCfdz-rYdusV5OU1atruvbh26YM5Z1cwvr4hR-VtitxcpVSqyRN5cywctoxRRyHJWbXYnjRdoMzy4AmIPFTSdIkfEHWKZGrwpN4BLEyNTuW1sut5haPqEmeiFTmfppxbjlTgwmgV1rd3BnoYgJNaCj"/>
+</div>
+<div class="space-y-3">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Autonomous vessel routing has completed its re-calibration for the Malacca Strait. Flow efficiency increased by 12%. No hostile interference recorded in the last 6-hour window.
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-primary">IMPACT_VECTOR: TRADE</span>
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-secondary">MARKET_SIGNAL: BULLISH_NEUTRAL</span>
+</div>
+</div>
+<div class="pt-2 flex justify-between items-center border-t border-outline-variant/20">
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Timestamp: 13:15:33 UTC+0</span>
+<button class="text-[10px] font-label font-bold text-primary hover:underline transition-all uppercase tracking-widest">View Map Data</button>
+</div>
+</div>
+</article>
+<!-- Event Card 3: Alert -->
+<article class="relative pl-8 border-l border-outline-variant/30 space-y-4 pb-12">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-primary-dim"></div>
+<div class="bg-surface-container-low p-4 space-y-4 group transition-all duration-300 hover:bg-surface-container-high">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-label text-[10px] bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full font-bold uppercase">Monitoring</span>
+<h3 class="font-headline font-bold text-lg leading-tight uppercase">Rare Earth Mineral Auction Volatility</h3>
+</div>
+<span class="font-label text-xs text-on-surface-variant">SEC-09</span>
+</div>
+<div class="aspect-video w-full overflow-hidden">
+<img alt="Digital Ticker" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Close up of a futuristic stock exchange display, showing numbers and charts, dark theme, high contrast neon text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr8C7XJLSIIUi3MA8do8529_7ipiNDpOr2qb4P-lcH7BtTlDhTJshkexzvTHPQyw2otLDOW7TpFtDbSiS2GI8ezzIjonF8ELQ7RRflgFnrqxfS1cyiQNRHJMRGG9QiT_F5qpEoZSKQImV7Rmd2kJLJubmqpu854DT0TNuRD7jeS-1Q0mdmW1_zDCGCarbNfPdks6mcFjrns27x8mcYrXjg-VbrSYAmPA7NQnNr_W3axbF6FEhAN1EM5PP-Yck_TSooDAMSjrWPrrlV"/>
+</div>
+<div class="space-y-3">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Global exchange markets for Neodymium and Dysprosium show unusual buy-side volume from untracked custodial accounts. Predictive models suggest a supply-chain squeeze in Q3.
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-primary">IMPACT_VECTOR: SUPPLY_CHAIN</span>
+<span class="text-[10px] font-label px-2 py-1 bg-surface-container-highest border border-outline-variant/30 text-primary">MARKET_SIGNAL: ACCUMULATION</span>
+</div>
+</div>
+<div class="pt-2 flex justify-between items-center border-t border-outline-variant/20">
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Timestamp: 12:44:09 UTC+0</span>
+<button class="text-[10px] font-label font-bold text-primary hover:underline transition-all uppercase tracking-widest">Financial Summary</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Right Column: Satellite Map & Quick Brief -->
+<aside class="lg:col-span-3 space-y-8 hidden lg:block">
+<div class="space-y-4">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Regional Focus</p>
+<div class="aspect-square bg-surface-container-high relative overflow-hidden group">
+<img alt="Satellite Map" class="w-full h-full object-cover opacity-50 grayscale" data-alt="Top-down satellite view of a geographic strait, monochromatic dark blue and charcoal palette, tech grid overlay" data-location="Strait of Malacca" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxWK-HV1s3qhVmzunxPLRJzQMpUl0FlGh5T2GOZF3B5LfcyrmnstQY9Fwns95FQ4lLdm9wjBOs1idjQlDrIwAvydwloFJEi6oaMwRo8PqlQVk_qwajxfnKbxE8fePtgJzptzOq9GBZ7dIGjUZlq4yOwEgdEKP9ksR0CRCIfDHrOQ3VdMHOmyLkSstiaTfAffotMv-PBbCz10BLSYbTnK_Od1OTS1BGUbQfn0J4LUWPvQBkcsVlqs6eGAfwT1DOTpYzgD55uHCqMMKR"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-16 h-16 border-2 border-tertiary rounded-full opacity-50"></div>
+<div class="absolute w-full h-[1px] bg-primary/20"></div>
+<div class="absolute h-full w-[1px] bg-primary/20"></div>
+</div>
+<div class="absolute bottom-2 left-2 bg-surface/80 p-2">
+<p class="text-[9px] font-label text-primary">LAT: 1.290270</p>
+<p class="text-[9px] font-label text-primary">LNG: 103.851959</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Active Briefs</p>
+<div class="space-y-3">
+<div class="p-3 bg-surface-container-low border-l-2 border-primary">
+<p class="text-[10px] font-label text-primary mb-1">BRIEF_2214</p>
+<p class="text-xs font-bold font-headline mb-1">CYBER-ECONOMIC SHIELDING</p>
+<p class="text-[10px] text-on-surface-variant leading-tight">Proactive defense protocols for central banking nodes established.</p>
+</div>
+<div class="p-3 bg-surface-container-low border-l-2 border-outline-variant">
+<p class="text-[10px] font-label text-on-surface-variant mb-1">BRIEF_2215</p>
+<p class="text-xs font-bold font-headline mb-1">SEMICONDUCTOR HEGEMONY</p>
+<p class="text-[10px] text-on-surface-variant leading-tight">Analysis of recent lithography export restrictions in the Pacific rim.</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-tertiary/10 border border-tertiary/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label text-[10px] font-bold text-tertiary tracking-widest">ELEVATED THREAT</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Predictive AI has flagged three concurrent infrastructure failures in the Balkan sector.</p>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-[#0e0e0e] h-20">
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#c6c6c7] bg-[#1f2020] rounded-none py-2 px-4 transition-all border-t-2 border-[#c6c6c7] active:opacity-80 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Briefs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Alerts</span>
+</a>
+</nav>
+</body></html>

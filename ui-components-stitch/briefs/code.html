@@ -1,0 +1,333 @@
+<html class="dark" lang="en"><head></head><body class="bg-surface text-on-surface pb-32">```html
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AEGIS INTELLIGENCE | INTELLIGENCE BRIEFS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&amp;family=Dancing+Script:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#72fe88",
+            "on-surface-variant": "#acabaa",
+            "on-primary-fixed": "#3e4040",
+            "on-secondary": "#002709",
+            "secondary-dim": "#17b64a",
+            "error-dim": "#bb5551",
+            "surface-bright": "#2c2c2c",
+            "on-secondary-fixed": "#004a18",
+            "surface-container-low": "#131313",
+            "secondary": "#17b64a",
+            "on-background": "#e7e5e4",
+            "surface-variant": "#252626",
+            "error": "#ee7d77",
+            "on-primary-container": "#d0d0d0",
+            "primary-dim": "#b8b9b9",
+            "on-error-container": "#ff9993",
+            "primary-fixed-dim": "#d4d4d4",
+            "outline-variant": "#484848",
+            "surface-tint": "#c6c6c7",
+            "on-tertiary-fixed": "#000000",
+            "on-secondary-container": "#4ad968",
+            "on-primary-fixed-variant": "#5a5c5c",
+            "secondary-container": "#004616",
+            "on-secondary-fixed-variant": "#006a26",
+            "on-error": "#490106",
+            "on-primary": "#3f4041",
+            "on-surface": "#e7e5e4",
+            "tertiary-fixed-dim": "#e62721",
+            "on-tertiary-fixed-variant": "#150000",
+            "on-tertiary-container": "#000000",
+            "inverse-surface": "#fcf8f8",
+            "outline": "#767575",
+            "tertiary-container": "#f9362c",
+            "surface-container-lowest": "#000000",
+            "primary": "#c6c6c7",
+            "tertiary-dim": "#e2241f",
+            "background": "#0e0e0e",
+            "surface": "#0e0e0e",
+            "tertiary-fixed": "#f9362c",
+            "surface-container-highest": "#252626",
+            "surface-dim": "#0e0e0e",
+            "surface-container": "#191a1a",
+            "inverse-primary": "#5e5f60",
+            "inverse-on-surface": "#565554",
+            "tertiary": "#ff7162",
+            "primary-fixed": "#e2e2e2",
+            "primary-container": "#454747",
+            "error-container": "#7f2927",
+            "surface-container-high": "#1f2020",
+            "on-tertiary": "#4a0001",
+            "secondary-fixed-dim": "#63ef7b"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"],
+            "editorial": ["Playfair Display"],
+            "signature": ["Dancing Script"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #0e0e0e;
+      color: #e7e5e4;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .asymmetric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+    }
+    @media (max-width: 768px) {
+      .asymmetric-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    .text-tabular { font-variant-numeric: tabular-nums; }
+    .premium-blur {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 0%, #A0A0A0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .report-title-kern {
+      letter-spacing: -0.04em;
+    }
+  </style>
+<!-- TopAppBar (from COMPONENTS_8) -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#0e0e0e] flex justify-between items-center px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c6c6c7]" data-icon="security">security</span>
+<h1 class="font-['Space_Grotesk'] text-lg font-black tracking-[0.2em] text-[#c6c6c7]">AEGIS INTELLIGENCE</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#acabaa] hover:bg-[#1f2020] transition-colors duration-200 px-2 py-1" href="#">HOME</a>
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#acabaa] hover:bg-[#1f2020] transition-colors duration-200 px-2 py-1" href="#">MAP</a>
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#acabaa] hover:bg-[#1f2020] transition-colors duration-200 px-2 py-1" href="#">FEED</a>
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#c6c6c7] transition-colors duration-200" href="#">BRIEFS</a>
+</nav>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdIEl8X6-1TQTFn5kOBFB8fLxZK_qQfmU0qFa1onF6xb81wzN4Al-pIGArwSF5JY0JiawpiKr4W61UXziq7Hom5hi1fwP3gWPKUDIsoCGW0xHT_lmr113ndf1CEeuYvlk3aDi4kKdCL4APjhbhbVz83vSXH4RcOpo21po5FaLnkIm27JhVq0S0dkhtdc_P_i2Gu1ywF7_4dFRWsoMPBChB6AU5dOgV0IliacvVCldfR-AIntAoLEkcWwhU6aLng-0E8_UaTJ8pW6kU"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 pt-24 pb-16 md:pt-32">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+<div class="space-y-6 w-full max-w-2xl">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-secondary font-label text-[10px] uppercase tracking-widest font-bold">Live Feed Active</span>
+</div>
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.25em] border-l border-outline-variant pl-4">TS-ID // 8829-X-DELTA</span>
+</div>
+<div class="space-y-2">
+<h1 class="text-6xl md:text-8xl font-black report-title-kern font-headline leading-[0.9] gradient-text uppercase">Daily Global<br/>Report</h1>
+<div class="flex items-center gap-4 pt-4">
+<span class="w-12 h-px bg-outline-variant"></span>
+<p class="font-label text-on-surface-variant tracking-[0.4em] uppercase text-[10px]">
+            THURSDAY // OCTOBER 24, 2024 // 06:00 UTC
+          </p>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-surface-container-high border border-outline-variant text-on-surface hover:bg-surface-bright transition-all font-label text-[10px] uppercase tracking-widest group">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-y-0.5 transition-transform" data-icon="ios_share">ios_share</span>
+          Share
+        </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-primary text-surface hover:opacity-90 transition-all font-label text-[10px] uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+          Export PDF
+        </button>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
+<div class="bg-surface-container-low border border-outline-variant p-6 space-y-4">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em]">Events (24H)</span>
+<div class="flex items-baseline gap-3">
+<span class="text-4xl font-bold font-headline text-tabular">1,482</span>
+<span class="text-secondary text-[11px] font-label font-bold flex items-center">
+<span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span> 12%
+          </span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-6 space-y-4">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em]">Risk Status</span>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="text-2xl font-bold font-headline text-tertiary uppercase tracking-tight">Elevated</span>
+<span class="text-on-surface-variant text-[10px] font-label font-bold">LVL 04</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-tertiary w-4/5"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-6 md:col-span-2 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em]">Threat Propagation Trend</span>
+<span class="text-[9px] font-label text-on-surface-variant uppercase tracking-[0.3em]">7 Day Analysis</span>
+</div>
+<div class="h-12 w-full mt-4">
+<svg class="w-full h-full stroke-secondary/40 fill-none stroke-[1.5px]" preserveaspectratio="none" viewbox="0 0 400 60">
+<path d="M0,50 Q15,45 35,55 T75,35 T115,50 T155,25 T195,40 T235,15 T275,35 T315,20 T355,45 T400,25"></path>
+<path class="stroke-secondary stroke-[2.5px]" d="M0,50 Q15,45 35,55 T75,35 T115,50 T155,25 T195,40 T235,15 T275,35 T315,20 T355,45 T400,25"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Intelligence Briefs Content -->
+<div class="space-y-24">
+<!-- Brief 01 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+<div class="md:col-span-5 relative overflow-hidden bg-surface-container-low border border-outline-variant aspect-video">
+<img alt="Grid Infrastructure" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBu748entHV4dNcjVwPPMCZ-BehwgIIHIrpgJ168hCFkwg5kAO-3IbxipsuGejpiseX2W3sY5bdDuXrlxYPNZ5DzGtXEcniz19TeZDwHaWtU2AjWDn6PMU-Tt6VMXSxUmh3LEQCyTd9hkTYiI4dDgLO8I7OWO05g4FjxR6EvNiAKvm5ku-90LOF1ldhxdaqgNANbGmbZLQtNcWdl40fyTkY0DzjhxJLtWv-NkxP4mHG-QqAOnyYn9mNv7cHFu4xoTEZdJyvzLHkLo4"/>
+<div class="absolute top-4 left-4">
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1 font-label text-[10px] uppercase tracking-widest font-bold rounded-full">CRITICAL // ALPHA</div>
+</div>
+</div>
+<div class="md:col-span-7 flex flex-col space-y-6">
+<div class="space-y-4">
+<span class="font-label text-on-surface-variant text-[11px] uppercase tracking-[0.5em] block">SEC-01 / GEO-POLITICAL</span>
+<h2 class="text-3xl md:text-5xl font-bold font-headline tracking-tighter leading-tight uppercase">Central European Energy corridor instability</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg font-light">
+              Unscheduled maintenance alerts across three major nodes have triggered a 14% volatility spike in regional futures. AI analysis suggests 82% probability of coordinated kinetic disruption.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-8 border-t border-outline-variant/30">
+<div class="space-y-2">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold">Impact Vector</span>
+<p class="font-medium text-xs text-on-surface">Systemic Tier-2 Vulnerability identified in grid redundancy.</p>
+</div>
+<div class="space-y-2">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold">Market Signal</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<p class="font-bold text-[11px] text-tertiary uppercase tracking-widest">High Volatility</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Brief 02 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+<div class="md:col-span-7 flex flex-col space-y-6 order-2 md:order-1">
+<div class="space-y-4 md:text-right md:items-end">
+<span class="font-label text-on-surface-variant text-[11px] uppercase tracking-[0.5em] block">SEC-02 / CYBER-INTEL</span>
+<h2 class="text-3xl md:text-5xl font-bold font-headline tracking-tighter leading-tight uppercase">Quantum-Resistant Layer 1 breach detected</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg font-light md:ml-auto md:max-w-xl">
+              Sentinel-X detected a brute-force pattern targeting secure financial ledger protocols. Forensic footprint matches advanced state-sponsored actor 'GHOST-7'.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-8 border-t border-outline-variant/30">
+<div class="space-y-2">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold">Security Status</span>
+<p class="font-medium text-xs text-on-surface">Node integrity nominal. Patch 9.4.2 deployment active.</p>
+</div>
+<div class="space-y-2 md:text-right">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.2em] font-bold block">Asset Impact</span>
+<div class="flex items-center gap-2 md:justify-end">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="font-bold text-[11px] text-secondary uppercase tracking-widest">Stable Outlook</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 relative overflow-hidden bg-surface-container-low border border-outline-variant aspect-video order-1 md:order-2">
+<img alt="Cybersecurity server room" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgjgARB1fvo3tMxvdakMIFicmAMtkI6Kn8fCku6_n_me1bzENFPcgtqcMnhNZJRVpQr2KtjSngzrmSTIMr2zbTaOp9iqlx3S7DaZB8wzJqkRZZhxIXNUhnSUW0ddIRRdn1wpy7it3lYd48xwMD5tcicj-BbZBPx_cWPLG-NWtTLQbnbOvIDkYNoKDKAAIpdW7eTdnRlg-L3kAQhsys73eNl4XaNk4uZrABCUqBWxFfkU5GaPFNnC2Sq0KsWt2vBnYXDmr-BOXd8F_t"/>
+<div class="absolute top-4 right-4">
+<div class="bg-surface-container-high/90 border border-outline-variant text-primary px-3 py-1 font-label text-[10px] uppercase tracking-widest font-bold rounded-full">MONITORING // ACTIVE</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Analyst Conclusion Section -->
+<section class="mt-24 md:mt-32">
+<div class="bg-surface-container-low border border-outline-variant p-8 md:p-16 flex flex-col lg:flex-row gap-12">
+<div class="flex-1 space-y-8">
+<div class="flex items-center gap-4">
+<span class="w-8 h-0.5 bg-secondary"></span>
+<span class="font-label text-on-surface-variant text-[11px] uppercase tracking-[0.4em] font-semibold">Chief Analyst Conclusion</span>
+</div>
+<div class="space-y-6">
+<span class="text-secondary opacity-30 material-symbols-outlined text-6xl italic" data-icon="format_quote"></span>
+<blockquote class="text-3xl md:text-4xl font-editorial leading-tight text-on-surface -mt-8">
+            The current global posture is characterized by high cyber-sensitivity and shifting energy dependencies. While trade logistics show signs of stabilization, the energy corridor remains a <span class="italic font-bold">critical point of failure</span> for the next 72 hours.
+          </blockquote>
+</div>
+</div>
+<div class="w-full lg:w-80 flex flex-col gap-6 justify-center">
+<div class="p-6 bg-surface-container-high border border-outline-variant space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-label text-on-surface-variant text-[10px] uppercase tracking-[0.3em]">Signal Confidence</span>
+<span class="text-secondary material-symbols-outlined text-xl" data-icon="verified">verified</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-headline font-bold text-on-surface">94.8</span>
+<span class="text-xl font-headline text-on-surface-variant">%</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<span class="font-label text-on-surface-variant text-[9px] uppercase tracking-[0.3em] opacity-60">Verified Digital Identity</span>
+<span class="block font-signature text-3xl text-on-surface">K. Sterling Vault</span>
+<div class="flex items-center gap-2 pt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-[9px] font-label text-secondary uppercase tracking-[0.2em] font-bold">Identity Confirmed</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex items-center gap-2 opacity-40">
+<span class="material-symbols-outlined text-sm" data-icon="shield">shield</span>
+<span class="font-label text-[8px] uppercase tracking-[0.3em]">Tokyo-09 Node</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (from COMPONENTS_8) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-[#0e0e0e] h-20">
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="public">public</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="rss_feed">rss_feed</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#c6c6c7] bg-[#1f2020] rounded-none py-2 px-4 transition-all border-t-2 border-[#c6c6c7]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="description">description</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Briefs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Alerts</span>
+</a>
+</nav>
+
+```</body></html>

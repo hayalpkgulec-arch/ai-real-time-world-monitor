@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AEGIS INTELLIGENCE | GLOBAL REPORT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#72fe88",
+            "on-surface-variant": "#acabaa",
+            "on-primary-fixed": "#3e4040",
+            "on-secondary": "#002709",
+            "secondary-dim": "#17b64a",
+            "error-dim": "#bb5551",
+            "surface-bright": "#2c2c2c",
+            "on-secondary-fixed": "#004a18",
+            "surface-container-low": "#131313",
+            "secondary": "#17b64a",
+            "on-background": "#e7e5e4",
+            "surface-variant": "#252626",
+            "error": "#ee7d77",
+            "on-primary-container": "#d0d0d0",
+            "primary-dim": "#b8b9b9",
+            "on-error-container": "#ff9993",
+            "primary-fixed-dim": "#d4d4d4",
+            "outline-variant": "#484848",
+            "surface-tint": "#c6c6c7",
+            "on-tertiary-fixed": "#000000",
+            "on-secondary-container": "#4ad968",
+            "on-primary-fixed-variant": "#5a5c5c",
+            "secondary-container": "#004616",
+            "on-secondary-fixed-variant": "#006a26",
+            "on-error": "#490106",
+            "on-primary": "#3f4041",
+            "on-surface": "#e7e5e4",
+            "tertiary-fixed-dim": "#e62721",
+            "on-tertiary-fixed-variant": "#150000",
+            "on-tertiary-container": "#000000",
+            "inverse-surface": "#fcf8f8",
+            "outline": "#767575",
+            "tertiary-container": "#f9362c",
+            "surface-container-lowest": "#000000",
+            "primary": "#c6c6c7",
+            "tertiary-dim": "#e2241f",
+            "background": "#0e0e0e",
+            "surface": "#0e0e0e",
+            "tertiary-fixed": "#f9362c",
+            "surface-container-highest": "#252626",
+            "surface-dim": "#0e0e0e",
+            "surface-container": "#191a1a",
+            "inverse-primary": "#5e5f60",
+            "inverse-on-surface": "#565554",
+            "tertiary": "#ff7162",
+            "primary-fixed": "#e2e2e2",
+            "primary-container": "#454747",
+            "error-container": "#7f2927",
+            "surface-container-high": "#1f2020",
+            "on-tertiary": "#4a0001",
+            "secondary-fixed-dim": "#63ef7b"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .mask-radial {
+      mask-image: radial-gradient(circle, black 50%, transparent 100%);
+    }
+    .text-tabular { font-variant-numeric: tabular-nums; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-surface overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#0e0e0e] flex justify-between items-center px-6 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c6c6c7]" data-icon="security">security</span>
+<h1 class="font-['Space_Grotesk'] text-lg font-black tracking-[0.2em] text-[#c6c6c7]">AEGIS INTELLIGENCE</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#c6c6c7] transition-colors duration-200" href="#">HOME</a>
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#acabaa] hover:bg-[#1f2020] transition-colors duration-200 px-2 py-1" href="#">OPERATIONS</a>
+<a class="font-['Inter'] tracking-tighter uppercase font-bold text-sm text-[#acabaa] hover:bg-[#1f2020] transition-colors duration-200 px-2 py-1" href="#">ARCHIVE</a>
+</nav>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Avatar" data-alt="Close-up portrait of a high-tech intelligence officer in tactical gear with a neutral expression and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGBPwIxlKQNVCMoVacJz5SXCunFYyE9w18r1mxg5PMEF1tfbtuRFZIZet9Vc9RGz_eefM4-nZrkAZhbUjOwxWqFXscHX0hwGY4zICZBK-0EnWiChpgKR3qdNd4ZTUTUqB7GBVPLE-rUqG3QrvB2CAqiMX-nC4cfK_NnWMcIvxzX1OBG1H3aZt7S9fJpLyc_fNGl0Azf0XYNQ0iLvKuS3Ni23-5uYhbIqrf_56NTwJjO_o45cjo1rbe4QUyBijl76elop0qk9mbcLtn"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-[1600px] mx-auto min-h-screen">
+<!-- Hero / Risk Index Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+<div class="lg:col-span-8 bg-surface-container-low p-8 rounded-lg flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent pointer-events-none"></div>
+<!-- Cinematic Dial -->
+<div class="relative w-64 h-64 flex-shrink-0">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-tertiary-fixed" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="210 282" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-label text-xs tracking-widest text-on-surface-variant uppercase">Risk Level</span>
+<span class="text-6xl font-bold font-headline tracking-tighter text-tabular">74.8</span>
+<span class="font-label text-xs tracking-widest text-tertiary-fixed uppercase font-bold">ELEVATED</span>
+</div>
+</div>
+<div class="flex-grow z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">System Status: Active Monitoring</span>
+</div>
+<h2 class="text-4xl font-bold font-headline tracking-tighter mb-4 text-on-surface leading-none">Global Volatility Summary</h2>
+<p class="text-on-surface-variant text-sm max-w-xl mb-6 leading-relaxed">
+            Heightened activity detected in maritime logistics corridors. Sentiment analysis of diplomatic cables indicates a 12% increase in regional tension over the last 24H period. All nodes report high fidelity.
+          </p>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container p-4 rounded-lg">
+<span class="block font-label text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest">Confidence</span>
+<span class="text-xl font-bold font-headline text-tabular">98.2%</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg">
+<span class="block font-label text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest">Active nodes</span>
+<span class="text-xl font-bold font-headline text-tabular">14,209</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg">
+<span class="block font-label text-[10px] text-on-surface-variant mb-1 uppercase tracking-widest">Throughput</span>
+<span class="text-xl font-bold font-headline text-tabular">4.2 PB/s</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Market Grid -->
+<div class="lg:col-span-4 grid grid-rows-3 gap-4">
+<!-- Oil -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mb-1 block">WTI CRUDE OIL</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-tabular">82.44</span>
+<span class="text-secondary text-xs font-label font-bold tracking-tighter">+1.24%</span>
+</div>
+</div>
+<div class="w-24 h-10">
+<svg class="w-full h-full text-secondary" viewbox="0 0 100 40">
+<path d="M0 35 L10 32 L20 34 L30 28 L40 30 L50 20 L60 22 L70 15 L80 18 L90 10 L100 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Gold -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mb-1 block">GOLD SPOT</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-tabular">2341.10</span>
+<span class="text-tertiary text-xs font-label font-bold tracking-tighter">-0.42%</span>
+</div>
+</div>
+<div class="w-24 h-10">
+<svg class="w-full h-full text-tertiary" viewbox="0 0 100 40">
+<path d="M0 5 L10 12 L20 10 L30 18 L40 15 L50 25 L60 22 L70 30 L80 28 L90 35 L100 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- BTC -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mb-1 block">BITCOIN (BTC)</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-tabular">64,921</span>
+<span class="text-secondary text-xs font-label font-bold tracking-tighter">+4.88%</span>
+</div>
+</div>
+<div class="w-24 h-10">
+<svg class="w-full h-full text-secondary" viewbox="0 0 100 40">
+<path d="M0 38 L10 30 L20 35 L30 20 L40 25 L50 10 L60 15 L70 5 L80 12 L90 2 L100 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Split: Operations vs Feed -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Aegis Core Active Operations -->
+<section class="xl:col-span-7">
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant/10 pb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+<h3 class="font-headline font-bold text-xl tracking-tight uppercase">AEGIS CORE ACTIVE OPS</h3>
+</div>
+<span class="font-label text-xs text-on-surface-variant">SECURE_CHANNEL: 4.492-X</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Op Card 1 -->
+<div class="bg-surface-container-low p-5 rounded-lg group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 p-2 rounded text-primary">
+<span class="material-symbols-outlined" data-icon="satellite_alt">satellite_alt</span>
+</div>
+<span class="font-label text-[10px] bg-secondary-container text-on-secondary-container px-2 py-1 rounded">STABLE</span>
+</div>
+<h4 class="font-headline font-bold text-lg mb-1">Project Silver-Point</h4>
+<p class="text-on-surface-variant text-xs mb-4 line-clamp-2">Real-time surveillance monitoring of contested orbital slots. High fidelity data streams active from constellation SIGMA.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase">Target: LEO-4421</span>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">ACCESS <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Op Card 2 -->
+<div class="bg-surface-container-low p-5 rounded-lg group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-tertiary/10 p-2 rounded text-tertiary">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<span class="font-label text-[10px] bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded">ONGOING</span>
+</div>
+<h4 class="font-headline font-bold text-lg mb-1">Op: Crimson Shield</h4>
+<p class="text-on-surface-variant text-xs mb-4 line-clamp-2">Cyber-resilience audit of critical energy infrastructure across the Northern Hemisphere. Defense posture 2-A.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase">Vector: GRID-X</span>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">ACCESS <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Op Card 3 (Map Focus) -->
+<div class="bg-surface-container-low p-5 rounded-lg md:col-span-2 relative overflow-hidden h-48 group">
+<div class="absolute inset-0 grayscale opacity-40 group-hover:opacity-60 transition-opacity">
+<img alt="World Map" data-alt="Dark monochromatic minimalist world map with glowing pinpoints of light showing active nodes across continents" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsVropEGxfXQKV-giNid2QxxNxh7w1_hpDo8grpydi34xTCwMUuS1o5VON62oTKT87OmheeJTWJE3Chtv6klUky1zfmiYqDTDn7MrAvrp5W_hsj_eWrKcHUgU4hcI9ef2BLHiXOa8xRHF3QkE-E8wSYxG1PijpIUDTivi4nFDpjvvC1FniA84S03QbbCKXoZPhla3KFDzpjTYNJDALOjWEdsM1mbSWMHxFjZ1UGjokxIXyfyh0VepMGXv6XH-Na8javE7jyVk8cUu1"/>
+</div>
+<div class="relative z-10 flex flex-col justify-between h-full">
+<div class="flex justify-between items-start">
+<div class="bg-surface-container-highest p-2 backdrop-blur-md rounded">
+<span class="material-symbols-outlined text-on-surface" data-icon="public">public</span>
+</div>
+<div class="text-right">
+<span class="block font-label text-[10px] text-on-surface uppercase tracking-widest">Global Coverage</span>
+<span class="text-2xl font-bold font-headline text-tabular">94.8%</span>
+</div>
+</div>
+<div class="bg-surface-container-highest/80 backdrop-blur-sm p-3 rounded flex items-center justify-between">
+<span class="text-xs font-label text-on-surface-variant">Monitoring all 18 sectors.</span>
+<button class="bg-primary text-surface px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-sm">OPEN MAP</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity Feed -->
+<section class="xl:col-span-5 bg-surface-container-low p-6 rounded-lg">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="rss_feed">rss_feed</span>
+<h3 class="font-headline font-bold text-xl tracking-tight uppercase">INTELLIGENCE FEED</h3>
+</div>
+<span class="font-label text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded uppercase tracking-tighter">Live Updates</span>
+</div>
+<div class="space-y-6">
+<!-- Feed Item 1 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-secondary ring-4 ring-secondary/10 mb-2"></div>
+<div class="w-px h-full bg-outline-variant/30"></div>
+</div>
+<div class="pb-6">
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em]">TS-ID // 8829-X</span>
+<span class="text-[10px] text-outline">12:04:22</span>
+</div>
+<p class="text-sm font-semibold mb-2 group-hover:text-primary transition-colors">Anomalous frequency spike detected in Arctic Sector 4.</p>
+<div class="flex gap-2">
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">SIGINT</span>
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">NORAD</span>
+</div>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary/10 mb-2"></div>
+<div class="w-px h-full bg-outline-variant/30"></div>
+</div>
+<div class="pb-6">
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em]">DB-ID // 4011-P</span>
+<span class="text-[10px] text-outline">11:58:04</span>
+</div>
+<p class="text-sm font-semibold mb-2 group-hover:text-primary transition-colors">Market volatility alert: Crude Oil futures surge 1.2% in 4 mins.</p>
+<div class="flex gap-2">
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">ECON</span>
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">CRITICAL</span>
+</div>
+</div>
+</div>
+<!-- Feed Item 3 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-on-surface-variant ring-4 ring-on-surface-variant/10 mb-2"></div>
+<div class="w-px h-full bg-outline-variant/30"></div>
+</div>
+<div class="pb-6">
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em]">OP-ID // 9920-W</span>
+<span class="text-[10px] text-outline">11:42:15</span>
+</div>
+<p class="text-sm font-semibold mb-2 group-hover:text-primary transition-colors">Constellation SIGMA repositioning complete. 100% throughput.</p>
+<div class="flex gap-2">
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">SYSTEM</span>
+<span class="text-[9px] border border-outline-variant px-1.5 py-0.5 font-label text-on-surface-variant uppercase">AUTO</span>
+</div>
+</div>
+</div>
+<!-- View All -->
+<button class="w-full py-3 bg-surface-container-high hover:bg-surface-bright transition-colors text-[10px] font-bold uppercase tracking-widest text-on-surface-variant rounded">
+            DOWNLOAD FULL LOG ARCHIVE (.RAW)
+          </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-[#0e0e0e] h-20">
+<a class="flex flex-col items-center justify-center text-[#c6c6c7] bg-[#1f2020] rounded-none py-2 px-4 transition-all border-t-2 border-[#c6c6c7]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="public">public</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="rss_feed">rss_feed</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="description">description</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Briefs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#acabaa] py-2 px-4 hover:text-white transition-opacity duration-200 active:opacity-80" href="#">
+<div class="relative">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary-fixed rounded-full"></span>
+</div>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Alerts</span>
+</a>
+</footer>
+</body></html>
