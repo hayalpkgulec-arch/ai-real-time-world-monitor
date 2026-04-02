@@ -28,7 +28,7 @@ jobs:
     - name: 🔨 Build Flutter web
       run: |
         cd aegis_app
-        flutter build web --web-renderer canvaskit --no-sound-null-safety
+        flutter build web
         
     - name: 📦 Install Railway CLI
       run: npm install -g @railway/cli
