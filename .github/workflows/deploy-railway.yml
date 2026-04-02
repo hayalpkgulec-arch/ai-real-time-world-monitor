@@ -19,12 +19,16 @@ jobs:
       with:
         flutter-version: '3.19.0'
         channel: 'stable'
+        working-directory: aegis_app
         
     - name: 📦 Get Flutter dependencies
-      run: flutter pub get
-      
+      run: |
+        cd aegis_app
+        flutter pub get
+        
     - name: 🔨 Build Flutter web
       run: |
+        cd aegis_app
         flutter build web --web-renderer canvaskit --no-sound-null-safety
         
     - name: 📦 Install Railway CLI
